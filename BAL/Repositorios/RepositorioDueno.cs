@@ -13,27 +13,48 @@ namespace BAL.Repositorios
     {
         public void AgregarDueno(ModeloDueno modelo)
         {
-            throw new NotImplementedException();
+            using (BdMascotaEntities db = new BdMascotaEntities())
+            {
+                db.TBL_DUENO.Add(mapearABaseDatos(modelo));
+                db.SaveChanges();
+            }
         }
 
         public void EditarDueno(ModeloDueno modelo)
         {
-            throw new NotImplementedException();
+            using (var db = new BdMascotaEntities())
+            {
+                var editar = db.TBL_DUENO.Find(modelo.IdDueno);
+                editar.Correo = modelo.Correo;
+                db.SaveChanges();
+            }
+
         }
 
         public void EliminarDueno(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new BdMascotaEntities)
+            {
+                var eliminar=db.TBL_DUENO.Find(id);
+                db.TBL_DUENO.Remove(eliminar);
+                db.SaveChanges();
+            }        
         }
 
         public ModeloDueno ObtenerDuenoPorId(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new BdMascotaEntities())
+            {
+                return mapearAAplicacion(db.TBL_DUENO.Find(id));
+            }
         }
 
         public List<ModeloDueno> ObtenerTodos()
         {
-            throw new NotImplementedException();
+            using (var db = new BdMascotaEntities())
+            {
+                return db.TBL_DUENO.Select(mapearAAplicacion).ToList();
+            }
         }
 
         private TBL_DUENO mapearABaseDatos(ModeloDueno modelo)
