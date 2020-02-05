@@ -12,5 +12,12 @@ namespace BAL.Modelos
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int IdDueno { get; set; }
+        public int IdTipo { get; set; }
+    }
+
+    public class ModeloDetallesMascota  : ModeloMascota
+    {
+        public ModeloDueno Duenos { get; set; }
+        public ModeloTipo TipoMascota { get; set; }
     }
 }

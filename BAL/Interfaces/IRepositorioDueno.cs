@@ -14,5 +14,6 @@ namespace BAL.Interfaces
         List<ModeloDueno> ObtenerTodos();
         ModeloDueno ObtenerDuenoPorId(int id);
         void EditarDueno(ModeloDueno modelo);
+        ModeloDuenoyMascota obtenerDuenoConMascotas(int idDueno);
     }
 }

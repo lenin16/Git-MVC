@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdMascotaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_DUENO">
+    <Key>
+      <PropertyRef Name="IdDueno" />
+    </Key>
+    <Property Name="IdDueno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_MASCOTA">
+    <Key>
+      <PropertyRef Name="IdMascota" />
+    </Key>
+    <Property Name="IdMascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="IdDueno" Type="int" Nullable="false" />
+    <Property Name="IdTipo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_TIPO_MASCOTA">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="120" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TBL_MASCOTA_TBL_DUENO">
+    <End Role="TBL_DUENO" Type="Self.TBL_DUENO" Multiplicity="1" />
+    <End Role="TBL_MASCOTA" Type="Self.TBL_MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DUENO">
+        <PropertyRef Name="IdDueno" />
+      </Principal>
+      <Dependent Role="TBL_MASCOTA">
+        <PropertyRef Name="IdDueno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_MASCOTA_TBL_TIPO_MASCOTA">
+    <End Role="TBL_TIPO_MASCOTA" Type="Self.TBL_TIPO_MASCOTA" Multiplicity="1" />
+    <End Role="TBL_MASCOTA" Type="Self.TBL_MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TIPO_MASCOTA">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="TBL_MASCOTA">
+        <PropertyRef Name="IdTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BdMascotaModelStoreContainer">
+    <EntitySet Name="TBL_DUENO" EntityType="Self.TBL_DUENO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_MASCOTA" EntityType="Self.TBL_MASCOTA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_TIPO_MASCOTA" EntityType="Self.TBL_TIPO_MASCOTA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBL_MASCOTA_TBL_DUENO" Association="Self.FK_TBL_MASCOTA_TBL_DUENO">
+      <End Role="TBL_DUENO" EntitySet="TBL_DUENO" />
+      <End Role="TBL_MASCOTA" EntitySet="TBL_MASCOTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_MASCOTA_TBL_TIPO_MASCOTA" Association="Self.FK_TBL_MASCOTA_TBL_TIPO_MASCOTA">
+      <End Role="TBL_TIPO_MASCOTA" EntitySet="TBL_TIPO_MASCOTA" />
+      <End Role="TBL_MASCOTA" EntitySet="TBL_MASCOTA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

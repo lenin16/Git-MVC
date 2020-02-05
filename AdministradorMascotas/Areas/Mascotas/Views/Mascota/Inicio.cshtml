@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BAL.Modelos.ModeloMascota>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Duenos.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoMascota.Nombre)
+        </th>*@
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Duenos.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoMascota.Nombre)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.IdMascota }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdMascota }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdMascota })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,87 @@
+﻿@using BAL.Modelos
+@model BAL.Modelos.ModeloMascota
+
+@{
+    ViewBag.Title = "Create";
+    var duennos = ViewBag.duenos as List<ModeloDueno>;
+    var tipos = ViewBag.tipos as List<ModeloTipo>;
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ModeloMascota</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IdMascota, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdMascota, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdMascota, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Dueño</label>
+            <div class="col-md-10">
+                <select class="form-control" name="@Html.NameFor(Model=>Model.IdDueno)" id="@Html.NameFor(Model=>Model.IdDueno)">
+                    @*var dueno in viewbag.duenos*@
+                    <option selected="" disabled="">-Seleccionar un dueño-</option>
+                    @foreach (var dueno in duennos)
+                    {
+                        <option value="@dueno.IdDueno">@dueno.NombreCompleto</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tipo</label>
+            <div class="col-md-10">
+                <select class="form-control" name="@Html.NameFor(Model=>Model.IdTipo)" id="@Html.NameFor(Model=>Model.IdTipo)">
+                    
+                    <option selected="" disabled="">-Seleccionar un tipo-</option>
+                    @foreach (var tipo in tipos)
+                    {
+                        <option value="@tipo.IdTipo">@tipo.Nombre</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Inicio")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

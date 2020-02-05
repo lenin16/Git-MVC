@@ -65,6 +65,7 @@ namespace BAL.Repositorios
                 IdMascota = modelo.IdMascota,
                 IdDueno = modelo.IdDueno,
                 Nombre=modelo.Nombre,
+                IdTipo=modelo.IdTipo
             };
         }
 

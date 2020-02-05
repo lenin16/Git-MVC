@@ -1,0 +1,12 @@
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\DAL.dll.config
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\DAL.dll
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\DAL.pdb
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\EntityFramework.dll
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\EntityFramework.xml
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\es\EntityFramework.resources.dll
+C:\Programacion\AdministradorMascotas\DAL\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Programacion\AdministradorMascotas\DAL\obj\Debug\DAL.dll
+C:\Programacion\AdministradorMascotas\DAL\obj\Debug\DAL.pdb
+C:\Programacion\AdministradorMascotas\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

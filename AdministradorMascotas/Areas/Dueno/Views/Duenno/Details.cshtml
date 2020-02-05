@@ -1,0 +1,44 @@
+﻿@model BAL.Modelos.ModeloDuenoyMascota
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dueño: @Model.NombreCompleto</h4>
+    <hr />
+
+    <table class="table table-bordered" >
+        <thead>
+            <tr>
+                <th>Nombre completa</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Mascotas.Any())
+            {
+                foreach (var item in Model.Mascotas)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Descripcion</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="2">no existe elementos</th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {  id = Model.IdDueno  }) |
+    @Html.ActionLink("vorlver", "Inicio")
+</p>

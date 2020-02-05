@@ -51,11 +51,14 @@
   <ItemGroup>
     <Compile Include="Interfaces\IRepositorioDueno.cs" />
     <Compile Include="Interfaces\IRepositorioMascota.cs" />
+    <Compile Include="Interfaces\IRepositorioTipo.cs" />
     <Compile Include="Modelos\ModeloDueno.cs" />
     <Compile Include="Modelos\ModeloMascota.cs" />
+    <Compile Include="Modelos\ModeloTipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioDueno.cs" />
     <Compile Include="Repositorios\RepositorioMascota.cs" />
+    <Compile Include="Repositorios\RepositorioTipo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

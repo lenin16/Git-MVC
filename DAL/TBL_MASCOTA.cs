@@ -18,7 +18,9 @@ namespace DAL
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int IdDueno { get; set; }
+        public int IdTipo { get; set; }
     
         public virtual TBL_DUENO TBL_DUENO { get; set; }
+        public virtual TBL_TIPO_MASCOTA TBL_TIPO_MASCOTA { get; set; }
     }
 }

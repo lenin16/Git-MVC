@@ -27,5 +27,6 @@ namespace DAL
     
         public virtual DbSet<TBL_DUENO> TBL_DUENO { get; set; }
         public virtual DbSet<TBL_MASCOTA> TBL_MASCOTA { get; set; }
+        public virtual DbSet<TBL_TIPO_MASCOTA> TBL_TIPO_MASCOTA { get; set; }
     }
 }

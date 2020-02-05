@@ -73,6 +73,9 @@
     <Compile Include="TBL_MASCOTA.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBL_TIPO_MASCOTA.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModeloDatos.edmx">

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BdMascotaModelStoreContainer" CdmEntityContainer="BdMascotaEntities">
+    <EntitySetMapping Name="TBL_DUENO">
+      <EntityTypeMapping TypeName="BdMascotaModel.TBL_DUENO">
+        <MappingFragment StoreEntitySet="TBL_DUENO">
+          <ScalarProperty Name="IdDueno" ColumnName="IdDueno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_MASCOTA">
+      <EntityTypeMapping TypeName="BdMascotaModel.TBL_MASCOTA">
+        <MappingFragment StoreEntitySet="TBL_MASCOTA">
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+          <ScalarProperty Name="IdMascota" ColumnName="IdMascota" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdDueno" ColumnName="IdDueno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_TIPO_MASCOTA">
+      <EntityTypeMapping TypeName="BdMascotaModel.TBL_TIPO_MASCOTA">
+        <MappingFragment StoreEntitySet="TBL_TIPO_MASCOTA">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

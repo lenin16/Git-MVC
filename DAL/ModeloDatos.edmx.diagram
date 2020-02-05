@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="BdMascotaModel.TBL_DUENO" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BdMascotaModel.TBL_MASCOTA" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="BdMascotaModel.FK_TBL_MASCOTA_TBL_DUENO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BdMascotaModel.TBL_TIPO_MASCOTA" Width="1.5" PointX="5.25" PointY="1.25" />
+        <AssociationConnector Association="BdMascotaModel.FK_TBL_MASCOTA_TBL_TIPO_MASCOTA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

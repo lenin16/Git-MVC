@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdMascotaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBL_DUENO">
+    <Key>
+      <PropertyRef Name="IdDueno" />
+    </Key>
+    <Property Name="IdDueno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBL_MASCOTA" Relationship="Self.FK_TBL_MASCOTA_TBL_DUENO" FromRole="TBL_DUENO" ToRole="TBL_MASCOTA" />
+  </EntityType>
+  <EntityType Name="TBL_MASCOTA">
+    <Key>
+      <PropertyRef Name="IdMascota" />
+    </Key>
+    <Property Name="IdMascota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdDueno" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_DUENO" Relationship="Self.FK_TBL_MASCOTA_TBL_DUENO" FromRole="TBL_MASCOTA" ToRole="TBL_DUENO" />
+    <Property Name="IdTipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_TIPO_MASCOTA" Relationship="BdMascotaModel.FK_TBL_MASCOTA_TBL_TIPO_MASCOTA" FromRole="TBL_MASCOTA" ToRole="TBL_TIPO_MASCOTA" />
+  </EntityType>
+  <Association Name="FK_TBL_MASCOTA_TBL_DUENO">
+    <End Role="TBL_DUENO" Type="Self.TBL_DUENO" Multiplicity="1" />
+    <End Role="TBL_MASCOTA" Type="Self.TBL_MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DUENO">
+        <PropertyRef Name="IdDueno" />
+      </Principal>
+      <Dependent Role="TBL_MASCOTA">
+        <PropertyRef Name="IdDueno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BdMascotaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_DUENO" EntityType="Self.TBL_DUENO" />
+    <EntitySet Name="TBL_MASCOTA" EntityType="Self.TBL_MASCOTA" />
+    <AssociationSet Name="FK_TBL_MASCOTA_TBL_DUENO" Association="Self.FK_TBL_MASCOTA_TBL_DUENO">
+      <End Role="TBL_DUENO" EntitySet="TBL_DUENO" />
+      <End Role="TBL_MASCOTA" EntitySet="TBL_MASCOTA" />
+    </AssociationSet>
+    <EntitySet Name="TBL_TIPO_MASCOTA" EntityType="BdMascotaModel.TBL_TIPO_MASCOTA" />
+    <AssociationSet Name="FK_TBL_MASCOTA_TBL_TIPO_MASCOTA" Association="BdMascotaModel.FK_TBL_MASCOTA_TBL_TIPO_MASCOTA">
+      <End Role="TBL_TIPO_MASCOTA" EntitySet="TBL_TIPO_MASCOTA" />
+      <End Role="TBL_MASCOTA" EntitySet="TBL_MASCOTA" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TBL_TIPO_MASCOTA">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_MASCOTA" Relationship="BdMascotaModel.FK_TBL_MASCOTA_TBL_TIPO_MASCOTA" FromRole="TBL_TIPO_MASCOTA" ToRole="TBL_MASCOTA" />
+  </EntityType>
+  <Association Name="FK_TBL_MASCOTA_TBL_TIPO_MASCOTA">
+    <End Type="BdMascotaModel.TBL_TIPO_MASCOTA" Role="TBL_TIPO_MASCOTA" Multiplicity="1" />
+    <End Type="BdMascotaModel.TBL_MASCOTA" Role="TBL_MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_TIPO_MASCOTA">
+        <PropertyRef Name="IdTipo" />
+      </Principal>
+      <Dependent Role="TBL_MASCOTA">
+        <PropertyRef Name="IdTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

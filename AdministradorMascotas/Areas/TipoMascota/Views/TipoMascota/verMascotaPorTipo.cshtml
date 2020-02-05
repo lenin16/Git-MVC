@@ -1,0 +1,26 @@
+﻿@model List<BAL.Modelos.ModeloTipo>
+@{
+    ViewBag.Title = "verMascotaPorTipo";
+}
+
+<h2>ver mascota por tipo</h2>
+
+<div>
+    <div class="form-group">
+        <p>seleccione un tipo para ver mascotas</p>
+        <div class="col-md-10">
+            <select name="tipo" id="tipo" class="form-control">
+                <option selected="" disabled="">-seleccione un tipo-</option>
+                <optgroup label="tipos">
+                    @foreach (var tipo in Model.OrderBy(t=>t.Nombre))
+                    {
+                        <option value="@tipo.IdTipo">@tipo.Nombre</option>
+                    }
+                </optgroup>
+            </select>
+        </div>
+        <div id="receptor" class="col-md-10">
+
+        </div>
+    </div>
+</div>

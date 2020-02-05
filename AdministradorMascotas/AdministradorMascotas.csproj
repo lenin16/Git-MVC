@@ -167,6 +167,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Dueno\Controllers\DuennoController.cs" />
+    <Compile Include="Areas\Dueno\DuenoAreaRegistration.cs" />
+    <Compile Include="Areas\Mascotas\Controllers\MascotaController.cs" />
+    <Compile Include="Areas\Mascotas\MascotasAreaRegistration.cs" />
+    <Compile Include="Areas\TipoMascota\Controllers\TipoMascotaController.cs" />
+    <Compile Include="Areas\TipoMascota\TipoMascotaAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -188,6 +194,28 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Dueno\Views\web.config" />
+    <Content Include="Areas\Dueno\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Dueno\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Dueno\Views\Duenno\Inicio.cshtml" />
+    <Content Include="Areas\Dueno\Views\Duenno\Create.cshtml" />
+    <Content Include="Areas\Dueno\Views\Duenno\Details.cshtml" />
+    <Content Include="Areas\Dueno\Views\Duenno\Edit.cshtml" />
+    <Content Include="Areas\Dueno\Views\Duenno\Delete.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\web.config" />
+    <Content Include="Areas\TipoMascota\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\Inicio.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\Details.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\Create.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\Delete.cshtml" />
+    <Content Include="Areas\Mascotas\Views\web.config" />
+    <Content Include="Areas\Mascotas\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Mascotas\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Mascotas\Views\Mascota\Inicio.cshtml" />
+    <Content Include="Areas\Mascotas\Views\Mascota\Create.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\verMascotaPorTipo.cshtml" />
+    <Content Include="Areas\TipoMascota\Views\TipoMascota\verMascotasDelTipo.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -237,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Dueno\Models\" />
+    <Folder Include="Areas\Mascotas\Models\" />
+    <Folder Include="Areas\TipoMascota\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -245,6 +276,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BAL\BAL.csproj">
+      <Project>{82dbcfe3-3c07-4a14-8944-b52fe9638343}</Project>
+      <Name>BAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

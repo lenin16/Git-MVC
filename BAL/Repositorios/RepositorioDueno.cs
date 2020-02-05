@@ -31,9 +31,19 @@ namespace BAL.Repositorios
 
         }
 
+        public ModeloDuenoyMascota obtenerDuenoConMascotas(int idDueno)
+        {
+            using (var db = new BdMascotaEntities())
+            {
+                var dueno = db.TBL_DUENO.Find(idDueno);
+                var duenoConMascota = mapearDuenoyMascotaHaAplicacion(dueno);
+                return duenoConMascota;
+            }
+        }
+
         public void EliminarDueno(int id)
         {
-            using (var db = new BdMascotaEntities)
+            using (var db = new BdMascotaEntities())
             {
                 var eliminar=db.TBL_DUENO.Find(id);
                 db.TBL_DUENO.Remove(eliminar);
@@ -76,6 +86,19 @@ namespace BAL.Repositorios
                 Nombre=tbl.Nombre,
                 Apellido=tbl.Apellido,
                 Correo=tbl.Correo,
+            };
+        }
+
+        private ModeloDuenoyMascota mapearDuenoyMascotaHaAplicacion(TBL_DUENO tbl)
+        {
+            return new ModeloDuenoyMascota(tbl.IdDueno, tbl.Nombre, tbl.Apellido)
+            {
+                Mascotas=tbl.TBL_MASCOTA.Select(m=>new ModeloMascota()
+                {
+                    IdDueno=m.IdDueno,
+                    Nombre=m.Nombre,
+                    Descripcion=m.Descripcion
+                }).ToList()
             };
         }
     }
