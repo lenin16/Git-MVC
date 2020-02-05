@@ -11,16 +11,50 @@
         <div class="col-md-10">
             <select name="tipo" id="tipo" class="form-control">
                 <option selected="" disabled="">-seleccione un tipo-</option>
-                <optgroup label="tipos">
+                
                     @foreach (var tipo in Model.OrderBy(t=>t.Nombre))
                     {
                         <option value="@tipo.IdTipo">@tipo.Nombre</option>
                     }
-                </optgroup>
+                
             </select>
         </div>
-        <div id="receptor" class="col-md-10">
+        <div class="row">
+            <div id="receptor" class="col-md-10">
 
+            </div>
         </div>
+        
     </div>
 </div>
+<script>
+    $(function () {
+        $("#tipo").change(function () {
+            var idTipo = $(this).val();
+            cargarTipos(idTipo);
+        });
+    });
+
+    function cargarTipos(idTipo)
+    {
+        $.ajax({
+            url: "@Url.Action("verMascotasDelTipo")",
+            type: "Get",
+            contentType: "HTML",
+            data: { idTipo: idTipo },
+            success: function (respuesta) {
+                $("#receptor").empty();
+                $("#receptor").append(respuesta);
+                
+            },
+            error: function (respuesta) {
+                alert(respuesta);
+            },
+            complete: function (respuesta) {
+                console.log(respuesta);
+            }
+        })
+    }
+</script>
+
+
